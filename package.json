@@ -1,5 +1,21 @@
 {
-  "name": "elizaos-plugins",
-  "version": "0.0.1",
-  "main": "index.json"
+  "name": "@elizaos/plugin-desearch",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --out-dir dist"
+  },
+  "dependencies": {
+    "@elizaos/plugin-openai": "^0.25.6-alpha.1"
+  },
+  "agentConfig": {
+    "pluginType": "elizaos:plugin:1.0.0",
+    "pluginParameters": {
+      "DESEARCH_API_KEY": {
+        "type": "string",
+        "description": "API key for the Desearch service"
+      }
+    }
+  }
 }
