@@ -1,15 +1,29 @@
-import { Plugin } from 'elizaos-core';
+import { Plugin } from "@elizaos/core";
+import { AISearchAction } from './actions/AISearch'
+import { TwitterLinksSearchAction } from './actions/twitterLinksSearch'
+import { WebLinksSearchAction } from './actions/webLinksSearch'
+import { TwitterSearchAction } from './actions/twitterSearch'
+import { TwitterByUrlsAction } from './actions/tweetByUrls'
+import { TweetByIdAction } from './actions/tweetById'
+import { TweetByUserAction } from './actions/tweetByUser'
+import { WebSearchAction } from './actions/webSearch'
+import { LatestTweetAction } from './actions/latestTweets'
 
-const desearchPlugin: Plugin = {
-  name: "desearch",
-  description: "Search with desearch.ai API",
-  async initialize(runtime) {
-    const apiKey = runtime.getSetting("DESEARCH_API_KEY");
-    // Initialize your API client here
-  },
-  actions: [], 
-  clients: [],
-  adapters: [], 
+export const desearchPlugin: Plugin = {
+    name: "desearch",
+    description: "DESEARCH plugin for Eliza",
+    actions: [
+        AISearchAction, 
+        TwitterLinksSearchAction, 
+        WebLinksSearchAction, 
+        TwitterSearchAction, 
+        TwitterByUrlsAction, 
+        TweetByIdAction, 
+        TweetByUserAction,
+        WebSearchAction,
+        LatestTweetAction,
+    ],
+    evaluators: [],
+    providers: [],
 };
-
 export default desearchPlugin;
